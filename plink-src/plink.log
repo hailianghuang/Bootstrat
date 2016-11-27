@@ -1,0 +1,18 @@
+
+@----------------------------------------------------------@
+|        PLINK!       |     v1.08p     |   14/Aug/2009     |
+|----------------------------------------------------------|
+|  (C) 2009 Shaun Purcell, GNU General Public License, v2  |
+|----------------------------------------------------------|
+|  For documentation, citation & bug-report instructions:  |
+|        http://pngu.mgh.harvard.edu/purcell/plink/        |
+@----------------------------------------------------------@
+
+Web-check not implemented on this system...
+Writing this text to log file [ plink.log ]
+Analysis started: Fri Jan 10 01:01:41 2014
+
+** Unused command line option: helper.cpp 
+** Unused command line option: ../plink-1.07-src/helper.cpp 
+
+ERROR: Problem parsing the command line arguments.

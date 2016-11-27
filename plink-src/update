@@ -1,0 +1,16 @@
+GWiS.cpp:  pref.pperm->setPermClusters(pref);
+GWiS.cpp:  pref.pperm->GWiSTests(1);
+GWiS.cpp:      pref.pperm->permuteInCluster();
+GWiS.cpp:      finished=pref.pperm->updateGWiS(BIC, BIC_original);
+GWiS.cpp:    pref.printLOG(int2str( pref.pperm->current_reps()) + " performed, " +  int2str(pref.pperm->current_success()) + " success\n");
+GWiS.cpp:    ASC<< setw(12) <<  pref.pperm->current_reps() << " "
+GWiS.cpp:       << setw(12) <<  pref.pperm->current_success()<< " "
+GWiS.cpp:       <<scientific << setw(12) << ((double)pref.pperm->current_success() + 1)  / (pref.pperm->current_reps()+1)  << " "
+GWiS.cpp:    pref.pperm->nextSet();
+rtest.cpp:  pperm->setTests( nTests );
+rtest.cpp:  pperm->setPermClusters(*this);
+rtest.cpp:  pperm->originalOrder();
+rtest.cpp:      pperm->permuteInCluster();
+rtest.cpp:      finished = pperm->update(pr, original);
+rtest.cpp:      POUT << setw(12) << pperm->pvalue(s) << "\n";
+rtest.cpp:      //POUT << setw(12) << pperm->max_pvalue(s) << "\n";
