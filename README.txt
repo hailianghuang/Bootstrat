@@ -82,7 +82,7 @@ snp=`head -n1 dat/wgas1.bim |cut -f2`
 3. Prepare the genotype file
 plink2 --bfile ./dat/wgas1 --extract ./dat/geneA.txt --recodeA --out wgas1.geneA
 
-4. Run SKAT with Bootstrat
+4. Run SKAT with Bootstrat. You may have to update ‘SKAT-src/Bootstrat_SKAT.R' to use your Rscript location (can be retrieved using 'which Rscript'). Alternately, you may run this script in the R interactive environment. If you do so, please set INTERACTIVE to TRUE in ‘SKAT-src/Bootstrat_SKAT.R'.
 ./SKAT-src/Bootstrat_SKAT.R pheno.ID.txt ID.shuffle.txt wgas1.geneA.raw
 
 

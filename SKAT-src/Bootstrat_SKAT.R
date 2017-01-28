@@ -1,4 +1,4 @@
-#!/broad/software/free/Linux/redhat_6_x86_64/pkgs/r_3.1.1-bioconductor-3.0/bin/Rscript
+#!/usr/local/bin/Rscript
 ##Load in regular SKAT
 library("SKAT")
 ##functions for running skat with PIP
@@ -9,14 +9,19 @@ source("./SKAT-src/KMTest_Optimal_VarMatching.R")
 source("./SKAT-src/Function.R")
 source("./SKAT-src/skat.functions.for.mod.perm.R")
 
+#set to TRUE if running interactively
+INTERACTIVE <- FALSE
+
 args <- commandArgs(TRUE)
 pheno.ID <- args[1]
 ID.shuffle <- args[2]
 geno_file <- args[3]
 
-pheno.ID <- "pheno.ID.txt"
-ID.shuffle <- "ID.shuffle.txt"
-geno_file <- "wgas1.geneA.raw"
+if(INTERACTIVE){
+	pheno.ID <- "pheno.ID.txt"
+	ID.shuffle <- "ID.shuffle.txt"
+	geno_file <- "wgas1.geneA.raw"
+}
 
 ##linker between the bootstrapped samples and the observed data
 numSAM.truSAM <- read.table(pheno.ID)
