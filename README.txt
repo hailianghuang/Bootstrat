@@ -1,7 +1,7 @@
 ----------------------
 Copyright
 ----------------------
-Copyright (c) 2016, Hailiang Huang, Mark J. Daly and Benjamin M. Neale, Analytic and Translational Genetics Unit, Massachusetts General Hospital, Boston MA
+Copyright (c) 2016, Hailiang Huang, Gina M Peloso, Daniel Howrigan, Mark J. Daly and Benjamin M. Neale, Analytic and Translational Genetics Unit, Massachusetts General Hospital, Boston MA
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -46,10 +46,12 @@ If the system and the Makefile are properly configured, the source code can be c
 
 cp ./plink-src/plink ./plink-bootstrat
 
+If you would like to run SKAT with Bootstrat, please install the 'SKAT' package in R.
+
 Now you are ready to move on with the tutorial.
 
 ----------------------
-Usage
+Usage (PLINK)
 ----------------------
 An example dataset has been provided in './dat/' (taken from the PLINK tutorial). 
 
@@ -65,7 +67,23 @@ plink2 --bfile ./dat/wgas1 --pca --out wgas1
 4. Inspect the result
 sort -k3g bootstrat.assoc.perm |head
 
+----------------------
+Usage (SKAT)
+----------------------
+Please complete steps 1 and 2 in the tutorial for PLINK (above) before starting this tutorial
 
+1. Prepare sample ID mapping file
+awk -F' ' '{print $1,$2,$6,NR}' dat/wgas1.fam > pheno.ID.txt
+
+2. Use the modified PLINK to provide the shuffling scheme
+snp=`head -n1 dat/wgas1.bim |cut -f2`
+./plink-bootstrat --bfile dat/wgas1 --snp $snp --pheno pheno.ID.txt --mpheno 2  --assoc --perm --Pperm prob_3.txt --mperm 1000 --print_shuffle ./ID.shuffle.txt  --out ID.shuffle
+
+3. Prepare the genotype file
+plink2 --bfile ./dat/wgas1 --extract ./dat/geneA.txt --recodeA --out wgas1.geneA
+
+4. Run SKAT with Bootstrat
+./SKAT-src/Bootstrat_SKAT.R pheno.ID.txt ID.shuffle.txt wgas1.geneA.raw
 
 
 
